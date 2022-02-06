@@ -15,4 +15,5 @@ public interface ICentralData {
     String getSpringCoreInternalRank();
     Player getPlayer();
     EPrefix getPluginPrefix();
+    String getCustomNickname(String name);
 }

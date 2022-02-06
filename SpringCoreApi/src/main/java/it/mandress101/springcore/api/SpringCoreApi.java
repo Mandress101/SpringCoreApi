@@ -1,6 +1,7 @@
 package it.mandress101.springcore.api;
 
 import it.mandress101.springcore.api.abstracts.SpringCoreCommand;
+import it.mandress101.springcore.api.abstracts.SpringCoreExtention;
 import it.mandress101.springcore.api.abstracts.SpringCoreRankRservedCommand;
 import org.bukkit.entity.Player;
 
@@ -13,5 +14,7 @@ public interface SpringCoreApi {
     SpringCorePlayer laodPlayer(String name);
     void registerCommand(SpringCoreCommand commandClass);
     void registerReservedcommand(SpringCoreRankRservedCommand commandClass);
-    void registerExtension(Class clazz, boolean legacy);
+    void registerExtension(Class clazz, boolean legacy, SpringCoreExtention extention);
+    void registerExtention(SpringCoreExtention extention);
+    void unregisterExtention(Class clazz, SpringCoreExtention extention);
 }

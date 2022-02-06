@@ -2,6 +2,7 @@ package it.mandress101.springcore.api;
 
 import it.mandress101.springcore.SpringCore;
 import it.mandress101.springcore.api.abstracts.SpringCoreCommand;
+import it.mandress101.springcore.api.abstracts.SpringCoreExtention;
 import it.mandress101.springcore.api.abstracts.SpringCoreRankRservedCommand;
 import it.mandress101.springcore.utils.Utils;
 import org.bukkit.entity.Player;
@@ -61,9 +62,20 @@ public class SpringCoreProvider implements SpringCoreApi {
     }
 
     @Override
-    public void registerExtension(Class clazz, boolean legacy) {
+    public void registerExtension(Class clazz, boolean legacy, SpringCoreExtention extention) {
         sendConsoleMessage("Estensione registrata su: &6" + clazz.getName());
+        extention.onEnable();
         //Utils.logInConsole("Estensione registrata su: &6" + clazz.getName());
+    }
+
+    @Override
+    public void registerExtention(SpringCoreExtention extention) {
+        extention.onEnable();
+    }
+
+    @Override
+    public void unregisterExtention(Class clazz, SpringCoreExtention extention) {
+         extention.onDisable();
     }
 
     public static SpringCoreApi getApi() {

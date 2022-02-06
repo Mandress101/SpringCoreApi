@@ -53,4 +53,6 @@ public interface SpringCorePlayer {
 
    PlayerInformation getPlayerInformation();
 
+   String getCustomNickname();
+
 }

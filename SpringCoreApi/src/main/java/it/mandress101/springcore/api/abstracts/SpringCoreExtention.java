@@ -5,19 +5,23 @@ import it.mandress101.springcore.api.SpringCoreProvider;
 
 public class SpringCoreExtention {
 
-    public int onEnable() {
-        return 1;
+    public void onEnable() {
+
     }
 
     public void registerCommand(SpringCoreCommand coreCommand) {
 
     }
 
-    public int onDisable() {
-        return 0;
+    public void onDisable() {
+
     }
 
     public SpringCoreApi getSpringApi() {
         return SpringCoreProvider.getApi();
+    }
+
+    public void log(String message) {
+        SpringCoreProvider.getApi().sendConsoleMessage(message);
     }
 }

@@ -1,9 +1,11 @@
 package it.mandress101.springcore.api;
 
+import it.mandress101.springcore.api.centraldata.ICentralData;
 import it.mandress101.springcore.api.model.PlayerInformation;
 import it.mandress101.springcore.commands.FreezeCommand;
 import it.mandress101.springcore.commands.SpyCommandsCommand;
 import it.mandress101.springcore.commands.VanishCommand;
+import it.mandress101.springcore.database.centraldata.CentralData;
 import it.mandress101.springcore.database.centraldata.MongoStorage;
 import it.mandress101.springcore.utils.Utils;
 import org.bukkit.Bukkit;
@@ -143,5 +145,11 @@ public class SpringCorePlayerApi implements SpringCorePlayer {
     @Override
     public PlayerInformation getPlayerInformation() {
         return null;
+    }
+
+    @Override
+    public String getCustomNickname() {
+        ICentralData centralData = new CentralData();
+        return centralData.getCustomNickname(name);
     }
 }
